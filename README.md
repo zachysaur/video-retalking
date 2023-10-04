@@ -66,10 +66,7 @@ Please download our [pre-trained models](https://drive.google.com/drive/folders/
 #### Inference
 
 ```
-python3 inference.py \
-  --face examples/face/1.mp4 \
-  --audio examples/audio/1.wav \
-  --outfile results/1_1.mp4
+python inference.py --face examples/face/1.mp4 --audio examples/audio/1.wav --outfile results/1_1.mp4
 ```
 This script includes data preprocessing steps. You can test any talking face videos without manual alignment. But it is worth noting that DNet cannot handle extreme poses.
 
