@@ -12,3 +12,7 @@ checkpoints/*
 results/*
 temp/*
 segments.txt
+*.sqlite
+/.vs/video-retalking/FileContentIndex
+/.vs/video-retalking/v17
+/.vs/ProjectSettings.json

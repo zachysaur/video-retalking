@@ -23,14 +23,14 @@ def load_checkpoint(path, model):
 
 def load_network(args):
     L_net = LNet()
-    L_net = load_checkpoint(args.LNet_path, L_net)
+    L_net = load_checkpoint('checkpoints/LNet.pth', L_net)
     E_net = ENet(lnet=L_net)
-    model = load_checkpoint(args.ENet_path, E_net)
+    model = load_checkpoint('checkpoints/ENet.pth', E_net)
     return model.eval()
 
 def load_DNet(args):
     D_Net = DNet()
-    print("Load checkpoint from: {}".format(args.DNet_path))
-    checkpoint =  torch.load(args.DNet_path, map_location=lambda storage, loc: storage)
+    print("Load checkpoint from: {}".format('checkpoints/DNet.pt'))
+    checkpoint =  torch.load('checkpoints/DNet.pt', map_location=lambda storage, loc: storage)
     D_Net.load_state_dict(checkpoint['net_G_ema'], strict=False)
     return D_Net.eval()
