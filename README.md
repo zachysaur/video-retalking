@@ -1,3 +1,42 @@
+## CMake
+First install [CMake](https://cmake.org/download/), then proceed with the install below:
+
+## Windows Install
+```
+git clone https://github.com/natlamir/video-retalking.git
+cd video-retalking
+conda create -n video-retalking python=3.8
+conda activate video-retalking
+
+conda install ffmpeg
+
+conda install pytorch torchvision torchaudio pytorch-cuda=11.8 -c pytorch -c nvidia
+
+pip install -r requirements.txt
+```
+
+## Quick Inference
+
+#### Pretrained Models
+Please download our [pre-trained models](https://drive.google.com/drive/folders/18rhjMpxK8LVVxf7PI6XwOidt8Vouv_H0?usp=share_link) and put them in `./checkpoints`.
+
+<!-- We also provide some [example videos and audio](https://drive.google.com/drive/folders/14OwbNGDCAMPPdY-l_xO1axpUjkPxI9Dv?usp=share_link). Please put them in `./examples`. -->
+
+#### Inference
+
+```
+python inference.py --face examples/face/1.mp4 --audio examples/audio/1.wav --outfile results/1_1.mp4
+```
+This script includes data preprocessing steps. You can test any talking face videos without manual alignment. But it is worth noting that DNet cannot handle extreme poses.
+
+You can also control the expression by adding the following parameters:
+
+```--exp_img```: Pre-defined expression template. The default is "neutral". You can choose "smile" or an image path.
+
+```--up_face```: You can choose "surprise" or "angry" to modify the expression of upper face with [GANimation](https://github.com/donydchen/ganimation_replicate).
+
+
+
 <div align="center">
 
 <h2>VideoReTalking <br/> <span style="font-size:12px">Audio-based Lip Synchronization for Talking Head Video Editing In the Wild</span> </h2> 
@@ -38,45 +77,6 @@
 
 ## Results in the Wild （contains audio）
 https://user-images.githubusercontent.com/4397546/224310754-665eb2dd-aadc-47dc-b1f9-2029a937b20a.mp4
-
-
-
-
-## Environment
-```
-git clone https://github.com/natlamir/video-retalking.git
-cd video-retalking
-conda create -n video-retalking python=3.8
-conda activate video-retalking
-
-conda install ffmpeg
-
-conda install pytorch torchvision torchaudio pytorch-cuda=11.8 -c pytorch -c nvidia
-
-pip install -r requirements.txt
-```
-
-## Quick Inference
-
-#### Pretrained Models
-Please download our [pre-trained models](https://drive.google.com/drive/folders/18rhjMpxK8LVVxf7PI6XwOidt8Vouv_H0?usp=share_link) and put them in `./checkpoints`.
-
-<!-- We also provide some [example videos and audio](https://drive.google.com/drive/folders/14OwbNGDCAMPPdY-l_xO1axpUjkPxI9Dv?usp=share_link). Please put them in `./examples`. -->
-
-#### Inference
-
-```
-python inference.py --face examples/face/1.mp4 --audio examples/audio/1.wav --outfile results/1_1.mp4
-```
-This script includes data preprocessing steps. You can test any talking face videos without manual alignment. But it is worth noting that DNet cannot handle extreme poses.
-
-You can also control the expression by adding the following parameters:
-
-```--exp_img```: Pre-defined expression template. The default is "neutral". You can choose "smile" or an image path.
-
-```--up_face```: You can choose "surprise" or "angry" to modify the expression of upper face with [GANimation](https://github.com/donydchen/ganimation_replicate).
-
-
 
 ## Citation
 
