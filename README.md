@@ -24,6 +24,9 @@ Please download our [pre-trained models](https://drive.google.com/drive/folders/
 
 #### Inference
 
+Modify the `run.bat` to point to your anaconda activate script path and environment name and then run the batch file. The WebUI can also  be launched with `python webUI.py`.
+Or you can call the original inference script with:
+
 ```
 python inference.py --face examples/face/1.mp4 --audio examples/audio/1.wav --outfile results/1_1.mp4
 ```
