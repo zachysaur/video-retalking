@@ -472,9 +472,6 @@ with gr.Blocks(
     with gr.Row():
         with gr.Column():
             with gr.Row():
-                seg = gr.Number(
-                    label="segment length (Second), 0 for no segmentation")
-            with gr.Row():
                 with gr.Column():
                     video = gr.File(label="Video", info="Filepath of video/image that contains faces to use")
 
