@@ -485,4 +485,4 @@ with gr.Blocks(
 
     btn.click(inference, inputs=[video, grAudio], outputs=[output])
 
-demo.queue().launch(inbrowser=True)
+demo.queue().launch(inbrowser=True, share=False)
